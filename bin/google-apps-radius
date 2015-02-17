@@ -26,11 +26,13 @@ var argv = require('yargs')
   .default('address', '0.0.0.0')
   .string('domain')
   .string('secret')
+  .boolean('otp')
   .argv;
 
 var server = googleAppsRadius.createServer({
   domain: argv.domain,
-  secret: argv.secret
+  secret: argv.secret,
+  otp: argv.otp
 });
 
 function now() {
